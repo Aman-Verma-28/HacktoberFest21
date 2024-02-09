@@ -10,7 +10,7 @@ def weather():          ##--> method of extracting weather detail from openweath
     #params_dict['zip'] = input("Enter City")  --by zip code
     #params_dict['q'] = input("Enter City Name : \t")
     params_dict['q'] = "Ranip"            ##--> Manually Replace your desirede city from all over world
-    res = re.get(baseurl, params=params_dict)
+    res = re.get(baseurl, params=params_dict, timeout=60)
     page = res.json()
     #print(page)
     weather_type = page['weather'][0]['description']
