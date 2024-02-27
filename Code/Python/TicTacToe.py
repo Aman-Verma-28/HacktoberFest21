@@ -9,8 +9,8 @@
 
 # importing all necessary libraries
 import numpy as np
-import random
 from time import sleep
+import secrets
 
 # Creates an empty board
 def create_board():
@@ -32,7 +32,7 @@ def possibilities(board):
 # Select a random place for the player
 def random_place(board, player):
 	selection = possibilities(board)
-	current_loc = random.choice(selection)
+	current_loc = secrets.SystemRandom().choice(selection)
 	board[current_loc] = player
 	return(board)
 
