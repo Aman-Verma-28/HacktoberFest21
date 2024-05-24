@@ -12,7 +12,7 @@ def weather_info(city):
         'units' : 'metric'
     }
 
-    response = requests.get(url, params)
+    response = requests.get(url, params, timeout=60)
     request = response.json()
 
     icon = request['weather'][0]['icon']
