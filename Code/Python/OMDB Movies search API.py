@@ -7,12 +7,12 @@ def id_extractor(movie):
     params_dict = {}
     params_dict['apikey'] = 'YOUR_API_KEY'
     params_dict['s'] = movie
-    res = re.get(baseurl , params=params_dict)
+    res = re.get(baseurl , params=params_dict, timeout=60)
     return res.json()['Search'][0]['imdbID']
 params_dict = {}
 params_dict['apikey'] = 'YOUR_API_KEY'
 params_dict['i'] = id_extractor(name)
-res = re.get(baseurl , params=params_dict)
+res = re.get(baseurl , params=params_dict, timeout=60)
 page = res.json()
 title = page['Title']
 release_date = page['Released']
