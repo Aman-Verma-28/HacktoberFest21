@@ -1,6 +1,6 @@
 
-import random
 import array
+import secrets
   
 # maximum length of password needed
 # this can be changed to suit your password length
@@ -25,10 +25,10 @@ SYMBOLS = ['@', '#', '$', '%', '=', ':', '?', '.', '/', '|', '~', '>',
 COMBINED_LIST = DIGITS + UPCASE_CHARACTERS + LOCASE_CHARACTERS + SYMBOLS
   
 # randomly select at least one character from each character set above
-rand_digit = random.choice(DIGITS)
-rand_upper = random.choice(UPCASE_CHARACTERS)
-rand_lower = random.choice(LOCASE_CHARACTERS)
-rand_symbol = random.choice(SYMBOLS)
+rand_digit = secrets.choice(DIGITS)
+rand_upper = secrets.choice(UPCASE_CHARACTERS)
+rand_lower = secrets.choice(LOCASE_CHARACTERS)
+rand_symbol = secrets.choice(SYMBOLS)
   
 # combine the character randomly selected above
 # at this stage, the password contains only 4 characters but 
@@ -38,11 +38,11 @@ temp_pass = rand_digit + rand_upper + rand_lower + rand_symbol
   
 
 for x in range(MAX_LEN - 4):
-    temp_pass = temp_pass + random.choice(COMBINED_LIST)
+    temp_pass = temp_pass + secrets.choice(COMBINED_LIST)
   
     
     temp_pass_list = array.array('u', temp_pass)
-    random.shuffle(temp_pass_list)
+    secrets.SystemRandom().shuffle(temp_pass_list)
   
 
 # to form the password
