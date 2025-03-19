@@ -1,5 +1,5 @@
 import tkinter
-import random
+import secrets
 
 class PWGenGui(tkinter.Frame):
     def __init__(self, master=None):
@@ -145,23 +145,23 @@ class PWGenGui(tkinter.Frame):
                 if self.amount.get():
                     for k in range(0, self.spinLength.get() - 1):
                         if characterBool == True:
-                            output += random.choice(self.consonantsList)
+                            output += secrets.choice(self.consonantsList)
                             characterBool = False
                         else:
-                            output += random.choice(self.vowelsList)
+                            output += secrets.choice(self.vowelsList)
                             characterBool = True
-                    output += random.choice(self.numbers)
+                    output += secrets.choice(self.numbers)
                 else:
                     for k in range(0, self.spinLength.get()):
                         if characterBool == True:
-                            output += random.choice(self.consonantsList)
+                            output += secrets.choice(self.consonantsList)
                             characterBool = False
                         else:
-                            output += random.choice(self.vowelsList)
+                            output += secrets.choice(self.vowelsList)
                             characterBool = True
             else:
                 for k in range(0, self.spinLength.get()):
-                    output += random.choice(self.allList)
+                    output += secrets.choice(self.allList)
 
             output += "\n"
             self.textOutput.insert("end", output, "hacker")
