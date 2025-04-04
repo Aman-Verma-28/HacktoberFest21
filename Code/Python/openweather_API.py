@@ -1,6 +1,6 @@
 ##--> Importing Useful Libraries
-import requests as re   ##--> Request module to request URL from web
 import json             ##--> To read json formatted data from web 
+from security import safe_requests
 
 
 def weather():          ##--> method of extracting weather detail from openweathermap API 
@@ -10,7 +10,7 @@ def weather():          ##--> method of extracting weather detail from openweath
     #params_dict['zip'] = input("Enter City")  --by zip code
     #params_dict['q'] = input("Enter City Name : \t")
     params_dict['q'] = "Ranip"            ##--> Manually Replace your desirede city from all over world
-    res = re.get(baseurl, params=params_dict)
+    res = safe_requests.get(baseurl, params=params_dict)
     page = res.json()
     #print(page)
     weather_type = page['weather'][0]['description']

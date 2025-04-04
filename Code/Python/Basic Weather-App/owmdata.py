@@ -1,6 +1,7 @@
-import requests, json
+import json
 from datetime import *
 from pprint import pprint
+from security import safe_requests
 
 def weather_info(city):
     url = 'https://api.openweathermap.org/data/2.5/weather'
@@ -12,7 +13,7 @@ def weather_info(city):
         'units' : 'metric'
     }
 
-    response = requests.get(url, params)
+    response = safe_requests.get(url, params)
     request = response.json()
 
     icon = request['weather'][0]['icon']
