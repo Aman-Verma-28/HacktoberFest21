@@ -1,4 +1,4 @@
-import random
+import secrets
 
 class Codec:
 
@@ -9,7 +9,7 @@ class Codec:
         domain=uri[0]+'/'
         uri.pop(0)
         url='/'.join(uri)        
-        n = random.randint(47890665,99999999) 
+        n = secrets.SystemRandom().randint(47890665,99999999) 
         self.dic={}
         self.dic['pre']=pre
         self.dic['domain']=domain

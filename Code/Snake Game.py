@@ -1,6 +1,6 @@
 import turtle
 import time
-import random
+import secrets
 
 delay = 0.1
 
@@ -116,8 +116,8 @@ while True:
     # Check for the collision of food
 	if head.distance(Food) < 20:
 		# Move the food to a random spot
-		x = random.randint(-290,290)
-		y = random.randint(-290,290)
+		x = secrets.SystemRandom().randint(-290,290)
+		y = secrets.SystemRandom().randint(-290,290)
 		Food.goto(x,y)
 
 		#Add a segment
